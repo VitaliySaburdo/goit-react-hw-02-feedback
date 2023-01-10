@@ -11,6 +11,11 @@ export const Button = styled.button`
   width: 50px;
   height: 20px;
   cursor: pointer;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid;
+  box-shadow: 3px 2px 2px #9f9f9f;
+  
   
 `;
 export const Box = styled.div`

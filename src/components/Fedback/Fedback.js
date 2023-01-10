@@ -17,6 +17,10 @@ class Feedback extends React.Component {
           <Button type="button">Neutral</Button>
           <Button type="button">Bad</Button>
         </Box>
+        <h2>Statistics</h2>
+        <p>Good:</p>
+        <p>Netural:</p>
+        <p>Bad:</p>
       </Container>
     );
   }
