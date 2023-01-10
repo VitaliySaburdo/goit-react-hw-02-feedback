@@ -6,19 +6,23 @@ class Feedback extends React.Component {
     initialGood: 0,
     initialNeutral: 0,
     initialBad: 0,
-  }
+    initialTotal: 0,
+  };
   static propTypes = {
-    // 
-  }
+    //
+  };
   state = {
     good: this.props.initialGood,
     neutral: this.props.initialNeutral,
     bad: this.props.initialBad,
+    total: this.props.initialTotal,
   };
 
   handleIncrementGood = () => {
     this.setState(prevState => {
-      return { good: prevState.good + 1 };
+      return {
+        good: prevState.good + 1,
+      };
     });
   };
   handleIncrementNetural = () => {
@@ -31,6 +35,15 @@ class Feedback extends React.Component {
       return { bad: prevState.bad + 1 };
     });
   };
+
+  countTotalFeedback = () => {
+    return this.state.bad + this.state.neutral + this.state.good
+  };
+
+
+  countPositiveFeedbackPercentage = () => {
+    return Math.ceil((this.state.good / this.countTotalFeedback()) * 100)
+  }
 
   render() {
     return (
@@ -51,6 +64,8 @@ class Feedback extends React.Component {
         <p>Good: {this.state.good}</p>
         <p>Neutral: {this.state.neutral}</p>
         <p>Bad: {this.state.bad}</p>
+        <p>Total: {this.countTotalFeedback()}</p>
+        <p>Positive feedback: {this.countTotalFeedback() && this.countPositiveFeedbackPercentage()}%</p>
       </Container>
     );
   }
