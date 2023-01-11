@@ -2,7 +2,8 @@ import React from 'react';
 import { FeedbackOptions } from './FedbackOptons/FeedbackOptons';
 import { Statistics } from './Statistics/Statistics';
 import { Section } from './Section/Section';
-import {Notification} from './Notification/Notification';
+import { Notification } from './Notification/Notification';
+import PropTypes from 'prop-types';
 
 export class App extends React.Component {
   static defaultProps = {
@@ -11,7 +12,9 @@ export class App extends React.Component {
     initialBad: 0,
   };
   static propTypes = {
-    //
+    initialGood: PropTypes.number.isRequired,
+    initialNeutral: PropTypes.number.isRequired,
+    initialBad: PropTypes.number.isRequired,
   };
   state = {
     good: this.props.initialGood,
